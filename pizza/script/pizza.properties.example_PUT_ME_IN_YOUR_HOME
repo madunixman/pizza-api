@@ -1,0 +1,4 @@
+pizza.JDBC_URL=jdbc:cassandra://localhost:9042/restaurants
+pizza.DRIVER_CLASS_NAME=com.github.adejanovski.cassandra.jdbc.CassandraDriver
+pizza.DB_USER=
+pizza.DB_PASSWORD=

@@ -1,44 +1,37 @@
 package com.apegroup.api.pizza;
-import javax.ws.rs.Consumes;
-import javax.ws.rs.GET;
-import javax.ws.rs.POST;
-import javax.ws.rs.Path;
-import javax.ws.rs.Produces;
+import net.lulli.metadao.api.MetaDto;
+import org.apache.log4j.Logger;
+
+import javax.ws.rs.*;
 import javax.ws.rs.core.Response;
-import java.util.Hashtable;
+import java.util.List;
 
 @Path("/")
-public class JSONService {
+public class JSONService
+{
+    private static final Logger log = Logger.getLogger("JSONService");
+    private static final RestaurantService restaurantService = RestaurantService.getInstance();
 
-        @GET
-        @Path("/getx")
-        @Produces("application/json")
-        public Hashtable<String, String> getItemInJSON_wrong() {
-		       Hashtable<String, String>item = new Hashtable<String, String>();
-        	       item.put("name", "my-name");
-        	       item.put("surname", "my-surname");
-                return item;
+    @GET
+    @Path("/restaurants")
+    @Produces("application/json")
+    public Response getRestaurants()
+    {
+        List<MetaDto> listOfData = restaurantService.getRestaurantsData();
+        return Response
+                .status(201)
+                .entity(listOfData)
+                .build();
+    }
 
-        }
-
-        @GET
-        @Path("/restaurants")
-        @Produces("application/json")
-        public Response getItemInJSON() {
-                Hashtable<String, String>item = new Hashtable<String, String>();
-                item.put("name", "my-name");
-                item.put("surname", "my-surname");
-                return Response.status(201).entity(item).build();
-        }
-
-        @POST
-        @Path("/post")
-        @Consumes("application/json")
-        public Response createItemInJSON(Hashtable<String, String> item) {
-
-                String result = "Item created : " + item;
-                return Response.status(201).entity(result).build();
-
-        }
+    @GET
+    @Path("/restaurants/{id_restaurant}")
+    @Produces("application/json")
+    public Response printMessage(@PathParam("id_restaurant") Integer id_restaurant)
+    {
+        MetaDto restaurantDto = restaurantService.getRestaurantData(id_restaurant);
+        return Response.status(200)
+                .entity(restaurantDto)
+                .build();
+    }
 }
-
