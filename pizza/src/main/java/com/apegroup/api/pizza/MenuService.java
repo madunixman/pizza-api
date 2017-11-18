@@ -7,8 +7,7 @@ import java.util.List;
 
 public class MenuService {
     private static final String ALLOW_FILTERING=" ALLOW FILTERING";
-    private static final Logger log =  Logger.getLogger("RestaurantService");
-    private static final String queryMenusList ="select * from restaurants.menu";
+    private static final Logger log =  Logger.getLogger("MenuService");
     private PizzaPersistentManager mPersistentManager;
     private static MenuService instance;
     private static List<MetaDto> mCachedMenuList = null;
