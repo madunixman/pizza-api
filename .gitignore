@@ -1,3 +1,5 @@
 */target/*
 pizza/.idea
 pizza/.idea/*
+pizza/src/main/webapp/WEB-INF/classes/
+pizza/pizza.log
