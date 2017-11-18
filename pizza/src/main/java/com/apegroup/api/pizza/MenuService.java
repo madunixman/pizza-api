@@ -1,4 +1,4 @@
-package com.apegroup.api.pizza.db;
+package com.apegroup.api.pizza;
 
 import com.apegroup.api.pizza.db.configdb.PizzaPersistentManager;
 import net.lulli.metadao.api.MetaDto;

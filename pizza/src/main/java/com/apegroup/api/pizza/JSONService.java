@@ -1,5 +1,4 @@
 package com.apegroup.api.pizza;
-import com.apegroup.api.pizza.db.MenuService;
 import net.lulli.metadao.api.MetaDto;
 import org.apache.log4j.Logger;
 
